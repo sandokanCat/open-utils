@@ -12,6 +12,7 @@ Created and maintained by [sandokan.cat](https://sandokancat.github.io/CV/)
 - ✅ Micro REST APIs (JavaScript, more languages coming soon)
 - 🛠️ JSON validation tools and data structure checks
 - 🧩 Frontend and backend utility modules
+- 🔄 Cross-browser CSS resets for consistent rendering
 - ⚙️ CLI scripts for automation (coming soon)
 - 📚 Clean code, examples, and practical usage patterns
 
