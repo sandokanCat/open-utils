@@ -1,7 +1,7 @@
 # open-utils
 
-📦 A growing collection of open-source APIs and utilities for everyday development tasks
-Created and maintained by [sandokan.cat](https://sandokancat.github.io/CV/)
+*📦 A growing collection of open-source APIs and utilities for everyday development tasks
+Created and maintained by [sandokan.cat](https://sandokancat.github.io/CV/)*
 
 > All code in this repository is [MIT licensed](https://opensource.org/licenses/MIT) and designed for developers, personal projects, and real-world learning across multiple languages.
 
@@ -12,7 +12,6 @@ Created and maintained by [sandokan.cat](https://sandokancat.github.io/CV/)
 - ✅ Micro REST APIs (JavaScript, more languages coming soon)
 - 🛠️ JSON validation tools and data structure checks
 - 🧩 Frontend and backend utility modules
-- 🔄 Cross-browser CSS resets for consistent rendering
 - ⚙️ CLI scripts for automation (coming soon)
 - 📚 Clean code, examples, and practical usage patterns
 
