@@ -4,7 +4,7 @@
  * © 2025 sandokan.cat – https://sandokancat.github.io/CV/
  * Released under the MIT License – https://opensource.org/licenses/MIT
  *
- * @version 1.0.2
+ * @version 1.0.3
  * @author sandokan.cat
  *
  * QUERY PARAMETERS:
@@ -106,20 +106,26 @@ export default async function handler(req, res) {
 		}
 
 		// ENSURE THERE ARE NO DUPLICATE PATHS ACROSS ENTRIES
-		const allPaths = new Set();
+		const globalPaths = new Map();
+
 		for (let i = 0; i < imgs.length; i++) {
 			const { webp, png } = imgs[i];
-			const paths = [
+			
+			const localPaths = [
 				...(webp?.srcSet?.split(',') || []).map(s => s.trim().split(' ')[0]),
 				...(png?.srcSet?.split(',') || []).map(s => s.trim().split(' ')[0]),
 				png?.fallback
 			].filter(Boolean);
-
-			for (const path of paths) {
-				if (allPaths.has(path)) {
-					throw new Error(`DUPLICATE PATH DETECTED: ${path}`);
+			
+			for (const path of localPaths) {
+				if (globalPaths.has(path)) {
+				const prevIndex = globalPaths.get(path);
+					if (prevIndex !== i) {
+						throw new Error(`${url} → DUPLICATE IMAGE PATH DETECTED ACROSS OBJECTS: ${path}`);
+					}
+				} else {
+					globalPaths.set(path, i);
 				}
-				allPaths.add(path);
 			}
 		}
 
