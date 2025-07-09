@@ -48,6 +48,6 @@ MIT © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)
 *Use it. Modify it. Share it. Attribution is appreciated but not required.*
 
 ---
-## ⚠ Disclaimer
+## ⚠️ Disclaimer
 
 > All tools and APIs in this repo are provided "as is", without warranties. Use at your own risk. Ideal for personal, educational, and professional projects.
