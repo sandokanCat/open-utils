@@ -8,11 +8,14 @@
 **Description:**  
 Validates any remote JSON file. Checks if the JSON is an array or object, optionally verifies it is not empty, and can enforce required keys in each object (if the JSON is an array).
 
-### Endpoint  
-``` GET /api/validateJSON?url={JSON_URL}[&timeout][&requiredKeys][&requireContent][&debug]```
+### Endpoint
 
+```bash
+GET /api/validateJSON?url={JSON_URL}[&timeout][&requiredKeys][&requireContent][&debug]
+```
 
 ### Query Parameters
+
 | Parameter      | Type   | Required | Description                                                    |
 |----------------|--------|----------|----------------------------------------------------------------|
 | `url`          | string | Yes      | The remote JSON URL to validate                                |
@@ -22,15 +25,16 @@ Validates any remote JSON file. Checks if the JSON is an array or object, option
 | `debug`        | string | No       | Set to `'false'` to silence server logs (default: true)       |
 
 ### Response
+
 - Success:
-```
+```json
 {
   "valid": true,
   "data": { /* Parsed JSON object or array */ }
 }
 ```
 - Failure:
-```
+```json
 {
   "valid": false,
   "error": "Descriptive error message"
@@ -38,8 +42,11 @@ Validates any remote JSON file. Checks if the JSON is an array or object, option
 ```
 
 ### Typical Usage Example
+
 Validate a JSON array where each object must include keys "id" and "name" and the array must not be empty:
-```GET /api/validateJSON?url=https://example.com/data.json&requiredKeys=id,name&requireContent=true```
+```bash
+GET /api/validateJSON?url=https://example.com/data.json&requiredKeys=id,name&requireContent=true
+```
 
 ---
 ## 2. validateCarousel API
@@ -48,24 +55,29 @@ Validate a JSON array where each object must include keys "id" and "name" and th
 Validates a JSON file structured for responsive image carousels. Checks that each entry contains exactly the keys webp, png, and alt, verifies valid image paths and extensions, presence of resolution multipliers (1x, 2x, 3x), fallback image validity, and ensures no duplicate image paths across entries.
 
 ### Endpoint
-```GET /api/validateCarousel?url={JSON_URL}[&debug]```
+
+```bash
+GET /api/validateCarousel?url={JSON_URL}[&debug]
+```
 
 ### Query Parameters
+
 | Parameter | Type   | Required | Description                                             |
 | --------- | ------ | -------- | ------------------------------------------------------- |
 | `url`     | string | Yes      | Remote JSON URL containing carousel images              |
 | `debug`   | string | No       | Set to `'false'` to silence server logs (default: true) |
 
 ### Response
+
 - Success:
-```
+```json
 {
   "valid": true,
   "data": [ /* Array of validated image objects */ ]
 }
 ```
 - Failure:
-```
+```json
 {
   "valid": false,
   "error": "Descriptive error message"
@@ -73,6 +85,7 @@ Validates a JSON file structured for responsive image carousels. Checks that eac
 ```
 
 ### Key Validations
+
 - JSON must be an array with at least 2 image entries.
 - Each entry must have exactly 3 keys: webp, png, and alt.
 - webp must have only the key srcSet with valid image paths including 1x, 2x, and 3x multipliers.
@@ -81,10 +94,14 @@ Validates a JSON file structured for responsive image carousels. Checks that eac
 - No duplicate image paths are allowed across different entries, except the fallback image if it is included in the same entry’s srcSet.
 
 ### Typical Usage Example
+
 Validate a remote carousel JSON:
-```GET /api/validateCarousel?url=https://example.com/carousel.json```
+```bash
+GET /api/validateCarousel?url=https://example.com/carousel.json
+```
 
 ### Common Errors
+
 - Missing 'url' parameter — The required url query parameter is missing.
 - JSON MUST BE ARRAY OR OBJECT — The remote JSON is neither an array nor an object.
 - MISSING REQUIRED KEYS — Required keys are missing in one or more objects.
@@ -93,6 +110,7 @@ Validate a remote carousel JSON:
 - AT LEAST 2 VALID IMAGES REQUIRED — Carousel JSON must contain at least two images.
 
 ### Notes
+
 - Both APIs support CORS with open access for easy integration from any frontend.
 - Use debug=false in production to avoid excessive server logging.
 - Always validate your JSON with these APIs before using it to prevent runtime errors and improve data integrity.
