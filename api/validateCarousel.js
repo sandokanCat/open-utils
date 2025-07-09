@@ -4,7 +4,7 @@
  * © 2025 sandokan.cat – https://sandokancat.github.io/CV/
  * Released under the MIT License – https://opensource.org/licenses/MIT
  *
- * @version 1.0.3
+ * @version 1.1.0
  * @author sandokan.cat
  *
  * QUERY PARAMETERS:
