@@ -1,6 +1,6 @@
-# open-utils
+# 📦 open-utils
 
-📦 A growing collection of open-source APIs and utilities for everyday development tasks.
+A growing collection of open-source APIs and utilities for everyday development tasks.
 
 *Created and maintained by [sandokan.cat](https://sandokancat.github.io/CV/)*
 
