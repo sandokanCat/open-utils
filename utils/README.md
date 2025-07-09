@@ -40,9 +40,7 @@ Or import in another CSS file
 
 ## 📝 License
 
-*Original reset: Public Domain*
-
-*Eric Meyer – [meyerweb.com](http://meyerweb.com/eric/tools/css/reset/)*
+*Original reset: Public Domain - [Eric Meyer](http://meyerweb.com/eric/tools/css/reset/)*
 
 **Custom modifications: © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)**
 
