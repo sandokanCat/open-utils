@@ -1,6 +1,6 @@
 # API Documentation
 
-This document describes two HTTP APIs to validate remote JSON files. These endpoints are designed to help you ensure the structure, content, and format of JSON data before consuming it in your frontend or services.
+*This document describes two HTTP APIs to validate remote JSON files. These endpoints are designed to help you ensure the structure, content, and format of JSON data before consuming it in your frontend or services.*
 
 ---
 
@@ -108,4 +108,4 @@ Validate a remote carousel JSON:
 - Always validate your JSON with these APIs before using it to prevent runtime errors and improve data integrity.
 
 ---
-Feel free to extend this documentation with curl examples or integration guides if needed.
+*Feel free to extend this documentation with curl examples or integration guides if needed.*
