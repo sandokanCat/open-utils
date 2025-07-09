@@ -1,0 +1,67 @@
+# utils/custom-reset.css
+
+*Universal CSS reset based on Meyerweb, modernized for real-world usage.*
+
+Fixes cross-browser inconsistencies and provides a clean, accessible foundation for any design system.
+
+---
+
+## 🧠 Features
+
+- Based on Eric Meyer's v2.0 reset – battle-tested since 2011.
+- Fully updated for modern HTML5 semantic tags.
+- Improved defaults for:
+  - Typography & readability
+  - Media elements (`img`, `svg`, `video`, `canvas`, etc.)
+  - Forms, buttons & links
+  - Accessibility (`:focus-visible`, reduced motion)
+- Universal `box-sizing: border-box` enforced globally.
+- Safe scroll behavior using `prefers-reduced-motion`.
+
+---
+
+## 🛠️ Usage
+
+Include via `<link>`
+
+```html
+<link rel="stylesheet" href="utils/custom-reset.css">
+```
+
+Or import in another CSS file
+
+```css
+@import url("./utils/custom-reset.css");
+```
+
+> This file should be loaded before any global styles or component-specific CSS.
+
+---
+
+## 📝 License
+
+*Original reset: Public Domain*
+
+*Eric Meyer – [meyerweb.com](http://meyerweb.com/eric/tools/css/reset/)*
+
+**Custom modifications: © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)**
+
+Licensed under [MIT](https://opensource.org/licenses/MIT)
+
+---
+
+## 🧪 Tested On
+
+- Chromium-based browsers (Chrome, Edge)
+- Firefox (desktop & mobile)
+- Safari (desktop & iOS)
+- Legacy fallback support (polyfills optional)
+
+---
+
+## ⚠️ Notes
+
+- This file does not add styling – only normalization.
+- Ideal for minimalistic UIs, landing pages, single-page apps, portfolios, and design systems.
+
+> "Reset before you paint."
