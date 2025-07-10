@@ -22,19 +22,27 @@ Fixes cross-browser inconsistencies and provides a clean, accessible foundation 
 
 ## 🛠️ Usage
 
-Include via `<link>`
+1. Import directly from API (CDN-style) — no need to download
 
+```css
+@import url("https://open-utils-sandokancats-projects.vercel.app/utils/custom-reset.css");
+```
+or
 ```html
-<link rel="stylesheet" href="utils/custom-reset.css">
+<link rel="stylesheet" href="https://open-utils-sandokancats-projects.vercel.app/utils/custom-reset.css">
 ```
 
-Or import in another CSS file
+2. Import locally from your own project folder
 
 ```css
 @import url("./utils/custom-reset.css");
 ```
+or
+```html
+<link rel="stylesheet" href="utils/custom-reset.css">
+```
 
-> This file should be loaded before any global styles or component-specific CSS.
+> ☝️ This file should be loaded **before** any global styles or component-specific CSS.
 
 ---
 
