@@ -70,4 +70,4 @@ Licensed under [MIT](https://opensource.org/licenses/MIT)
 - This file does not add styling – only normalization.
 - Ideal for minimalistic UIs, landing pages, single-page apps, portfolios, and design systems.
 
-> "Reset before you paint."
+> *"Reset before you paint."*
