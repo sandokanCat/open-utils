@@ -22,8 +22,7 @@ A growing collection of open-source APIs and utilities for everyday development 
 
 - /api → Standalone API endpoints grouped by language and purpose
 - /utils → Shared logic, validation modules, and data utilities
-- /scripts → CLI tools or dev automation (planned)
-- /docs → Examples, usage guides, and integration notes
+- /cybersec → Red Team tools (coming soon)
 
 *Each directory includes its own `README.md` when needed, with usage instructions and input/output examples.*
 
