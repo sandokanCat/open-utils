@@ -1,9 +1,10 @@
-# ⚠️ rockyou.txt
+# 🔗 More Wordlists
 
-The original `rockyou.txt` wordlist is too large to include directly in this repository.
+The `rockyou.txt` wordlist and others are too large to include directly in this repository.
 
-You can download it from this trusted source:
+You can download them from trusted sources:
 
-👉 [Download rockyou.txt](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt)
+- 📥 [rockyou.txt](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt)
+- 📚 [Other wordlists (by kkrypt0nn)](https://github.com/kkrypt0nn/wordlists/tree/main/wordlists/passwords)
 
-> Recommended for educational and testing purposes only.
+> ⚠️ Recommended for **educational and testing purposes only**.
