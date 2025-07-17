@@ -32,7 +32,7 @@ Fixes cross-browser inconsistencies and provides a clean, accessible foundation 
 <link rel="stylesheet" href="https://open-utils-sandokancats-projects.vercel.app/utils/custom-reset.css">
 ```
 
-2. Import locally from your own project folder
+2. Download and import locally from your own project folder
 
 ```css
 @import url("./utils/custom-reset.css");
