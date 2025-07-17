@@ -1,30 +1,30 @@
 # 📦 open-utils
 
-A growing collection of open-source APIs and utilities for everyday development tasks.
+A growing collection of open-source APIs and developer utilities for everyday tasks.
 
 *Created and maintained by [sandokan.cat](https://sandokancat.github.io/CV/)*
 
-> All code in this repository is [MIT licensed](https://opensource.org/licenses/MIT) and designed for developers, personal projects, and real-world learning across multiple languages.
+> All code in this repository is [MIT licensed](https://opensource.org/licenses/MIT), intended for developers, personal projects, and real-world learning across multiple languages.
 
 ---
 
 ## 🚀 What you'll find here
 
-- ✅ Micro REST APIs (JavaScript, more languages coming soon)
-- 🛠️ JSON validation tools and data structure checks
-- 🧩 Frontend and backend utility modules
-- ⚙️ CLI scripts for automation (coming soon)
-- 📚 Clean code, examples, and practical usage patterns
+- ✅ Minimal REST APIs in JavaScript (strict I/O, deploy-ready — more languages coming)
+- 🧪 Robust JSON validators with modular logic and reusable patterns
+- 🧩 Frontend & backend utilities for real-world integration
+- ⚙️ CLI tools for Red Team, automation, and pentesting workflows
+- 📚 Clean, documented code with examples and best practices
 
 ---
 
 ## 📁 Repository structure
 
-- /api → Standalone API endpoints grouped by language and purpose
-- /utils → Shared logic, validation modules, and data utilities
-- /cybersec → Red Team tools (coming soon)
+- `/api` → Public REST APIs grouped by use case (validation, UI, etc.)
+- `/utils` → Shared logic and internal validators (used across modules)
+- `/cybersec` → CLI tools for ethical hacking and Red Team training
 
-*Each directory includes its own `README.md` when needed, with usage instructions and input/output examples.*
+*Each directory includes its own `README.md` with usage instructions and I/O examples.*
 
 ---
 
@@ -41,8 +41,8 @@ cd open-utils
 
 ## 🤝 Contributing
 
-Contributions are welcome. Please keep code readable, tested, and modular.
-Pull requests should include a clear description and testable usage.
+Contributions are welcome! Keep code modular, readable, and tested.
+Pull requests should include a clear description and runnable usage example.
 
 ---
 
@@ -56,4 +56,4 @@ MIT © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)
 
 ## ⚠️ Disclaimer
 
-> All tools and APIs in this repo are provided "as is", without warranties. Use at your own risk. Ideal for personal, educational, and professional projects.
+> All tools and APIs in this repo are provided "as is", without warranties. Use at your own risk. Intended for personal, educational, and professional use.
