@@ -191,9 +191,13 @@ MIT © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)
 
 ## ⚠️ Disclaimer
 
-This tool is for **educational purposes only.**
+This tool is for **educational and ethical purposes only.**
 
-**Do not** use it against any system or hash you don't own or have explicit permission to test.
+> 🛡️ This script **does not include any hashes**. You are responsible for supplying your own, in a legal and responsible context.  
+> Do **not** use this tool against any data you do not own or have explicit permission to audit.
+
+**Misuse of this tool is your responsibility.**  
+Always operate within the boundaries of the law and ethical hacking guidelines.
 
 ---
 
