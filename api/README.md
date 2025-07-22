@@ -123,6 +123,6 @@ GET /api/validateCarousel?url=https://example.com/carousel.json
 
 ## 📝 License
 
-MIT © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)
+MIT © 2025 [sandokan.cat](https://sandokan.cat)
 
 > Feel free to extend this documentation with curl examples or integration guides if needed.
