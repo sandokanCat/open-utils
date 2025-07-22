@@ -50,7 +50,7 @@ Fixes cross-browser inconsistencies and provides a clean, accessible foundation 
 
 *Original reset: Public Domain - [Eric Meyer](http://meyerweb.com/eric/tools/css/reset/)*
 
-**Custom modifications: © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)**
+**Custom modifications: © 2025 [sandokan.cat](https://sandokan.cat)**
 
 Licensed under [MIT](https://opensource.org/licenses/MIT)
 
