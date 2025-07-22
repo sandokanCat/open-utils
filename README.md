@@ -2,7 +2,7 @@
 
 A growing collection of open-source APIs and developer utilities for everyday tasks.
 
-*Created and maintained by [sandokan.cat](https://sandokancat.github.io/CV/)*
+*Created and maintained by [sandokan.cat](https://sandokan.cat)*
 
 > All code in this repository is [MIT licensed](https://opensource.org/licenses/MIT), intended for developers, personal projects, and real-world learning across multiple languages.
 
@@ -48,7 +48,7 @@ Pull requests should include a clear description and runnable usage example.
 
 ## 📝 License
 
-MIT © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)
+MIT © 2025 [sandokan.cat](https://sandokan.cat)
 
 *Use it. Modify it. Share it. Attribution is appreciated but not required.*
 
