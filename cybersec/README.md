@@ -174,7 +174,7 @@ Or in JSON mode:
 
 ## 📝 License
 
-MIT © 2025 [sandokan.cat](https://sandokancat.github.io/CV/)
+MIT © 2025 [sandokan.cat](https://sandokan.cat)
 
 > *Use it. Modify it. Share it. Attribution is appreciated but not required.*
 
