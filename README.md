@@ -22,7 +22,7 @@ A growing collection of frontend utilities, JSON validators, CSS resets, and dev
 
 - `/public` → Static utilities for web projects (served directly on Vercel)
   - `/js` → JavaScript modules (e.g., JSON validators, carousel logic)
-  - `css` → Design utilities (e.g., custom-reset.css)
+  - `/css` → Design utilities (e.g., custom-reset.css)
 - `/cybersec` → Scripts & CLI tools for Red Team training and automation
 
 *Each directory includes its own `README.md` with usage instructions and examples.*
