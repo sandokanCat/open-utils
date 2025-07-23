@@ -60,5 +60,5 @@ MIT © 2025 [sandokan.cat](https://sandokan.cat)
 
 ## ⚠️ Disclaimer
 
-> All tools and utilities in this repo are provided "as is", without warranties.
+> All tools and utilities in this repo are provided "as is", without warranties. 
 > Use at your own risk. Intended for **personal**, **educational**, and **professional** use.
