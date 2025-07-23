@@ -38,6 +38,8 @@ git clone https://github.com/sandokancat/open-utils.git
 cd open-utils
 ```
 
+> You can import/download only the files you need – *with examples of use inside*
+
 ---
 
 ## 🤝 Contributing
@@ -58,4 +60,5 @@ MIT © 2025 [sandokan.cat](https://sandokan.cat)
 
 ## ⚠️ Disclaimer
 
-> All tools and APIs in this repo are provided "as is", without warranties. Use at your own risk. Intended for **personal**, **educational**, and **professional** use.
+> All tools and utilities in this repo are provided "as is", without warranties.
+> Use at your own risk. Intended for **personal**, **educational**, and **professional** use.
