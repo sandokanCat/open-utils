@@ -44,7 +44,7 @@ cd open-utils
 
 Contributions are welcome!
 Keep code **modular, readable, and tested**.
-ull requests should include a clear description and working example.
+Pull requests should include a clear description and working example.
 
 ---
 
