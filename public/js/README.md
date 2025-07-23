@@ -6,10 +6,10 @@
 
 ## 1. validateJSON.js
 
-**Description:**  
+📝 **Description:**  
 Validates any remote JSON file. Checks if the JSON is an array or object, optionally verifies it is not empty, and can enforce required keys in each object (if the JSON is an array).
 
-### Query Parameters
+### 🔑 Query Parameters
 
 | Parameter      | Type   | Required | Description                                                    |
 |----------------|--------|----------|----------------------------------------------------------------|
@@ -19,7 +19,7 @@ Validates any remote JSON file. Checks if the JSON is an array or object, option
 | `requireContent`| string | No       | Set to `'false'` to allow empty arrays or objects (default: true) |
 | `debug`        | string | No       | Set to `'false'` to silence server logs (default: true)       |
 
-### Response
+### 📦 Response
 
 - Success:
 ```json
@@ -60,17 +60,17 @@ or
 
 ## 2. validateCarousel.js
 
-**Description:**
+📝 **Description:**
 Validates a JSON file structured for responsive image carousels. Checks that each entry contains exactly the keys webp, png, and alt, verifies valid image paths and extensions, presence of resolution multipliers (1x, 2x, 3x), fallback image validity, and ensures no duplicate image paths across entries.
 
-### Query Parameters
+### 🔑 Query Parameters
 
 | Parameter | Type   | Required | Description                                             |
 | --------- | ------ | -------- | ------------------------------------------------------- |
 | `url`     | string | Yes      | Remote JSON URL containing carousel images              |
 | `debug`   | string | No       | Set to `'false'` to silence server logs (default: true) |
 
-### Response
+### 📦 Response
 
 - Success:
 ```json
@@ -87,7 +87,7 @@ Validates a JSON file structured for responsive image carousels. Checks that eac
 }
 ```
 
-### Key Validations
+### 🧩 Key Validations
 
 - JSON must be an array with at least 2 image entries.
 - Each entry must have exactly 3 keys: webp, png, and alt.
@@ -116,7 +116,7 @@ or
 <script type="module" src="js/validateCarousel.js"></script>
 ```
 
-### Common Errors
+###❗Common Errors
 
 - Missing 'url' parameter — The required url query parameter is missing.
 - JSON MUST BE ARRAY OR OBJECT — The remote JSON is neither an array nor an object.
