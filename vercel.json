@@ -3,19 +3,17 @@
     {
       "source": "/js/(.*)",
       "headers": [
+        { "key": "Content-Type", "value": "application/javascript" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" },
-        { "key": "Content-Type", "value": "application/javascript; charset=UTF-8" }
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
       ]
     },
     {
       "source": "/css/(.*)",
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" },
-        { "key": "Content-Type", "value": "text/css; charset=UTF-8" }
+        { "key": "Content-Type", "value": "text/css" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
   ]
