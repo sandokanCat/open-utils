@@ -1,0 +1,24 @@
+{
+  "headers": [
+    {
+      "source": "/js/(.*)",
+      "headers": [
+        { "key": "Content-Type", "value": "application/javascript" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Origin, Accept, Content-Type" },
+        { "key": "Cache-Control", "value": "public, max-age=2592000, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        { "key": "Content-Type", "value": "text/css" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Origin, Accept, Content-Type" },
+        { "key": "Cache-Control", "value": "public, max-age=2592000, must-revalidate" }
+      ]
+    }
+  ]
+}
