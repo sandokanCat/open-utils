@@ -116,7 +116,7 @@ or
 <script type="module" src="js/validateCarousel.js"></script>
 ```
 
-###❗Common Errors
+##❗Common Errors
 
 - Missing 'url' parameter — The required url query parameter is missing.
 - JSON MUST BE ARRAY OR OBJECT — The remote JSON is neither an array nor an object.
