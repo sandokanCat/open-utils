@@ -201,4 +201,4 @@ Always operate within the boundaries of the law and ethical hacking guidelines.
 
 ---
 
-> *"Brute force is a last resort, but understanding it is a first step."* - [sandokan.cat](https://sandokancat.github.io/CV/)
+> *"Brute force is a last resort, but understanding it is a first step."*
