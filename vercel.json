@@ -1,4 +1,7 @@
 {
+  "public": true,
+  "outputDirectory": "public",
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/js/(.*)",
