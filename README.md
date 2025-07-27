@@ -10,10 +10,10 @@ A growing collection of frontend utilities, JSON validators, CSS resets, and dev
 
 ## 🚀 What you'll find here
 
-- ✅ Vanilla JS modules for validating data (JSON, carousel configs, etc.)
-- 🎨 Frontend helpers like `custom-reset.css` for modern, cross-browser design
-- 🧩 Reusable, modular code ready for integration in any web project
-- ⚙️ CLI scripts & backend utilities for logging, security, and API workflows
+- 🎨 Frontend utilities for modern design and data validation
+- ⚙️ Backend tools for logging, APIs, and server-side workflows
+- 🧩 Modular code ready for integration in any web project
+- 🛡️ Scripts & tools for cybersecurity and Red Team automation
 - 📚 Clean, documented examples and best practices
 
 ---
@@ -21,8 +21,8 @@ A growing collection of frontend utilities, JSON validators, CSS resets, and dev
 ## 📁 Repository structure
 
 - `/public` → Static utilities for web frontend projects (served directly on Vercel)
-  - `/js` → JavaScript modules (e.g., JSON validators, carousel logic)
   - `/css` → Design utilities (e.g., custom-reset.css)
+  - `/js` → JavaScript modules (e.g., JSON validators, carousel logic)
 - `/server` → Server-side utilities and backend modules (e.g., CSP log collectors, form processors, endpoint templates)
 - `/cybersec` → Scripts & CLI tools for Red Team training and automation
 
