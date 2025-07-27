@@ -20,7 +20,7 @@ A growing collection of frontend utilities, JSON validators, CSS resets, and dev
 
 ## 📁 Repository structure
 
-- `/public` → Static utilities for web Frontend projects (served directly on Vercel)
+- `/public` → Static utilities for web frontend projects (served directly on Vercel)
   - `/js` → JavaScript modules (e.g., JSON validators, carousel logic)
   - `/css` → Design utilities (e.g., custom-reset.css)
 - `/server` → Server-side utilities and backend modules (e.g., CSP log collectors, form processors, endpoint templates)
