@@ -13,7 +13,7 @@ A growing collection of frontend utilities, JSON validators, CSS resets, and dev
 - 🎨 Frontend utilities for modern design and data validation
 - ⚙️ Backend tools for logging, APIs, and server-side workflows
 - 🧩 Modular code ready for integration in any web project
-- 🛡️ Scripts & tools for cybersecurity and Red Team automation
+- 🪓 Scripts & tools for cybersecurity and Red Team automation
 - 📚 Clean, documented examples and best practices
 
 ---
