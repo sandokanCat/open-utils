@@ -13,7 +13,7 @@ A growing collection of frontend utilities, JSON validators, CSS resets, and dev
 - ✅ Vanilla JS modules for validating data (JSON, carousel configs, etc.)
 - 🎨 Frontend helpers like `custom-reset.css` for modern, cross-browser design
 - 🧩 Reusable, modular code ready for integration in any web project
-- ⚙️ CLI scripts & utilities for backend and cybersecurity workflows (coming soon)
+- ⚙️ CLI scripts & backend utilities for logging, security, and API workflows
 - 📚 Clean, documented examples and best practices
 
 ---
