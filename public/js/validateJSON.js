@@ -4,7 +4,7 @@
  * © 2025 sandokan.cat – https://sandokan.cat
  * Released under the MIT License – https://opensource.org/licenses/MIT
  *
- * @version 1.4.2
+ * @version 1.4.3
  * @author sandokan.cat
  *
  * USAGE EXAMPLE:
@@ -24,16 +24,14 @@
 
 // VALIDATE AND PARSE A JSON FILE FROM URL
 export async function validateJSON(url, options = {}) {
-    try {
         const controller = new AbortController(); // CREATE ABORT CONTROLLER FOR TIMEOUT
         const timeout = setTimeout(() => controller.abort(), options.timeout || 7000); // DEFAULT TIMEOUT 7s
 
+    try {
         const res = await fetch(url, {
             ...options, // SPREAD USER OPTIONS
             signal: controller.signal, // ATTACH ABORT SIGNAL
         });
-
-        clearTimeout(timeout); // CLEAR TIMEOUT ON SUCCESS
 
         // CHECK STATUS
         if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
@@ -90,5 +88,7 @@ export async function validateJSON(url, options = {}) {
         console.error("validateJSON.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
         
         throw err; // RE-THROW FOR EXTERNAL HANDLING
+    } finally {
+        clearTimeout(timeout); // CLEAR TIMEOUT ON SUCCESS
     }
 }
