@@ -127,7 +127,6 @@ export async function validateCarousel(url, options = {}) {
 			}
 		}
 
-
 		return imgs; // RETURN ONLY IF FULLY VALID
 
 	} catch (err) {
