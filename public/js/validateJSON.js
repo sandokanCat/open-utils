@@ -4,7 +4,7 @@
  * © 2025 sandokan.cat – https://sandokan.cat
  * Released under the MIT License – https://opensource.org/licenses/MIT
  *
- * @version 1.4.1
+ * @version 1.4.2
  * @author sandokan.cat
  *
  * USAGE EXAMPLE:
@@ -15,8 +15,7 @@
  *   requireContent: true,          // fail if JSON array/object is empty (default true)
  *   allowedTypes: "object,string", // ensure array entries are of these types (default "object")
  *   requiredKeys: ["id", "name"],  // ensure each object in array has at least one of these keys (only for arrays)
- *   debug: true                    // log detailed errors in console (default true)
- *   // You can also add fetch options like method, headers, etc.
+ *   // You can also add fetch options like method, headers, debug mode, etc.
  * });
  *
  * // data will be either an array of objects or an object of objects,
@@ -30,7 +29,7 @@ export async function validateJSON(url, options = {}) {
         const timeout = setTimeout(() => controller.abort(), options.timeout || 7000); // DEFAULT TIMEOUT 7s
 
         const res = await fetch(url, {
-            ...options, // SPREAD USER OPTIONS (METHOD, HEADERS, ETC)
+            ...options, // SPREAD USER OPTIONS
             signal: controller.signal, // ATTACH ABORT SIGNAL
         });
 
@@ -88,10 +87,8 @@ export async function validateJSON(url, options = {}) {
         return data; // RETURN VALIDATED DATA
 
     } catch (err) {
-        const isDev = options.debug ?? true; // ENABLE LOG BY DEFAULT
-        if (isDev) {
-            console.error("validateJSON.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
-        }
-        throw err; // RE-THROW FOR EXTERNAL HANDLING
+        console.error("validateJSON.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
+    
+    throw err; // RE-THROW FOR EXTERNAL HANDLING
 }

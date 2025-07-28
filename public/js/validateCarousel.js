@@ -4,7 +4,7 @@
  * © 2025 sandokan.cat – https://sandokan.cat
  * Released under the MIT License – https://opensource.org/licenses/MIT
  *
- * @version 1.2.7
+ * @version 1.2.8
  * @author sandokan.cat
  *
  * DESCRIPTION:
@@ -14,15 +14,14 @@
  *
  * USAGE EXAMPLES:
  * const validImgs = await validateCarousel("js/data/carousel.json");
- * const validImgs = await validateCarousel("custom/path.json", { debug: false });
  */
 
+// IMPORT DEPENDENCIES
 import { validateJSON } from './validateJSON.js';
 
 // FETCH + VALIDATE IMAGE ENTRIES STRICTLY
 export async function validateCarousel(url, options = {}) {
 	const validExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif', '.svg', '.bmp', '.tiff', '.ico'];
-	const debug = options.debug ?? true;
 
 	// AUX: CHECK EACH PATH HAS VALID EXTENSION
 	const isValidPath = (srcSet, fallback = null) => {
@@ -47,7 +46,7 @@ export async function validateCarousel(url, options = {}) {
 
 	try {
 		// FETCH + BASE STRUCTURE VALIDATION
-		const imgs = await validateJSON(url, { debug });
+		const imgs = await validateJSON(url);
 
 		if (!Array.isArray(imgs)) throw new Error(`${url} → MUST RETURN AN ARRAY`);
 
@@ -132,10 +131,8 @@ export async function validateCarousel(url, options = {}) {
 		return imgs; // RETURN ONLY IF FULLY VALID
 
 	} catch (err) {
-		const isDev = options.debug ?? true; // ENABLE LOG BY DEFAULT
-		if (isDev) {
-			console.error("validateCarousel.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
-		}
-		throw err; // RE-THROW FOR EXTERNAL HANDLING
+		console.error("validateCarousel.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
 	}
+
+	throw err; // RE-THROW FOR EXTERNAL HANDLING
 }
