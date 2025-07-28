@@ -131,7 +131,7 @@ export async function validateCarousel(url, options = {}) {
 
 	} catch (err) {
 		console.error("validateCarousel.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        
+        throw err; // RE-THROW FOR EXTERNAL HANDLING
 	}
-
-	throw err; // RE-THROW FOR EXTERNAL HANDLING
 }

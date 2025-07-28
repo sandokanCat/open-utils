@@ -88,7 +88,7 @@ export async function validateJSON(url, options = {}) {
 
     } catch (err) {
         console.error("validateJSON.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        
+        throw err; // RE-THROW FOR EXTERNAL HANDLING
     }
-    
-    throw err; // RE-THROW FOR EXTERNAL HANDLING
 }
