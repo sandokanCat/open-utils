@@ -3,7 +3,7 @@
  *
  * @author © 2025 sandokan.cat – https://sandokan.cat
  * @license MIT – https://opensource.org/licenses/MIT
- * @version 1.3.0
+ * @version 1.3.1
  * @since 1.0.0
  * @date 2025-01-26
  * @see https://open-utils-dev-sandokan-cat.vercel.app/js/README.md
@@ -67,10 +67,16 @@
  *
  * @internal Uses helper functions: isValidPath(), hasMultipliers(), fallbackInSrcSet()
  *
- * @todo Consider support for more formats
- * @todo Parametrize required densities (e.g. accept 2x only)
- * @todo Modularize fallback path inclusion rules
- */
+ * @todo Consider support for more formats (e.g., AVIF, TIFF, ICO)
+ * @todo Parametrize required densities (e.g., accept only 2x or customize multipliers)
+ * @todo Modularize fallback path inclusion rules for better reusability and clarity
+ * @todo Add option to validate alt texts for all locales, not just one
+ * @todo Implement schema validation for the entire carousel structure (e.g., using JSON Schema)
+ * @todo Add detailed logging or reporting mode for easier debugging in development
+ * @todo Add configuration for allowed image extensions and their priorities
+ * @todo Improve duplicate path detection to support partial matches or similar filenames
+ * @todo Add support for lazy-loading or progressive image attributes validation
+*/
 
 // IMPORT DEPENDENCIES
 import { validateJSON } from './validateJSON.js';
@@ -112,7 +118,7 @@ export async function validateCarousel(url, options = {}) {
 
 			// KEYS MUST BE EXACTLY: webp, png, alt
 			const keys = Object.keys(entry);
-			if (keys.length!==3 || !keys.includes('webp') || !keys.includes('png') || !keys.includes('alt')) {
+			if (!keys.every(k => ['webp', 'png', 'alt'].includes(k)) || keys.length !== 3)                {
 				throw new Error(`${url} [index ${i}] → ENTRY MUST HAVE EXACT KEYS: webp, png, alt`);
 			}
 
@@ -130,14 +136,15 @@ export async function validateCarousel(url, options = {}) {
 			}
 
             // ALT TEXT MUST BE A NON-EMPTY OBJECT WITH VALID STRINGS
-            if (typeof alt !== 'object' || Object.keys(alt).length < 1) {
+            if (typeof alt !== 'object' || alt === null || Array.isArray(alt)) {
                 throw new Error(`${url} [index ${i}] → alt MUST BE A NON-EMPTY OBJECT`);
             }
-            for (const [locale, text] of Object.entries(alt)) {
-                if (typeof text !== 'string' || text.trim().length < 5) {
-                    throw new Error(`${url} [index ${i}] → alt.${locale} MUST BE STRING >= 5 CHARS`);
-                }
-            }
+            
+            const validAlts = Object.values(alt).filter(text => typeof text === 'string' && text.trim().length > 5);
+            
+            if (validAlts.length === 0) {
+                throw new Error(`${url} [index ${i}] → alt MUST CONTAIN AT LEAST ONE STRING > 5 CHARS`);
+            }            
 
 			// VALIDATE PATHS AND MULTIPLIERS FOR webp
 			if (!isValidPath(webp.srcSet)) {
