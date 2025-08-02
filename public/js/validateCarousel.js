@@ -134,8 +134,8 @@ export async function validateCarousel(url, options = {}) {
                 throw new Error(`${url} [index ${i}] → alt MUST BE A NON-EMPTY OBJECT`);
             }
             for (const [locale, text] of Object.entries(alt)) {
-                if (typeof text !== 'string' || text.trim().length <= 5) {
-                    throw new Error(`${url} [index ${i}] → alt.${locale} MUST BE STRING > 5 CHARS`);
+                if (typeof text !== 'string' || text.trim().length < 5) {
+                    throw new Error(`${url} [index ${i}] → alt.${locale} MUST BE STRING >= 5 CHARS`);
                 }
             }
 
