@@ -1,11 +1,25 @@
 /*!
- * IMPROVED MEYERWEB BASED RESET – http://meyerweb.com/eric/tools/css/reset/
- * @version 2.0 | 20110126
- * @author Eric Meyer
- * LICENSE: NONE (PUBLIC DOMAIN) base reset
+ * @fileoverview custom-reset.css – IMPROVED MEYERWEB-BASED RESET FOR CONSISTENT BASELINE
  *
- * CUSTOMIZED © 2025 sandokan.cat – https://sandokan.cat
- * Modifications licensed under MIT – https://opensource.org/licenses/MIT
+ * @author ORIGINAL: Eric Meyer – http://meyerweb.com/eric/tools/css/reset/
+ * @version 2.0 | 20110126 – PUBLIC DOMAIN
+ *
+ * @author CUSTOMIZED: © 2025 sandokan.cat – https://sandokan.cat
+ * @license Modifications under MIT – https://opensource.org/licenses/MIT
+ * @version 1.0.0
+ * @since 1.0.0
+ * @date 2025-01-26
+ * @see https://open-utils-dev-sandokan-cat.vercel.app/css/README.md
+ *
+ * @description Custom CSS reset based on Meyerweb 2.0. Sets box-sizing globally to border-box and neutralizes default browser styles for consistent rendering. It improves media defaults, resets typography and forms, handles quotes and lists, and ensures accessible focus states. Always load first in your CSS stack.
+ *
+ * @example
+ * // Use via @import in your CSS files:
+ * @import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
+ *
+ * @example
+ * // Or include in HTML files:
+ * <link rel="stylesheet" href="https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css">
  */
 
 /* UNIVERSAL */

@@ -1,25 +1,55 @@
 /*!
- * validateJSON.js – Fetches and validates JSON files
+ * @fileoverview validateJSON.js – FETCHES AND VALIDATES JSON FILES FROM URL
  *
- * © 2025 sandokan.cat – https://sandokan.cat
- * Released under the MIT License – https://opensource.org/licenses/MIT
- *
+ * @author © 2025 sandokan.cat – https://sandokan.cat
+ * @license MIT – https://opensource.org/licenses/MIT
  * @version 1.4.3
- * @author sandokan.cat
+ * @since 1.0.0
+ * @date 2025-01-26
+ * @see https://open-utils-dev-sandokan-cat.vercel.app/js/README.md
  *
- * USAGE EXAMPLE:
- * 
- * // Validate JSON from URL with options (can be edited to fit your needs):
- * const data = await validateJSON("data.json", {
- *   timeout: 5000,                 // max time to wait for response in ms (default 7000)
- *   requireContent: true,          // fail if JSON array/object is empty (default true)
- *   allowedTypes: "object,string", // ensure array entries are of these types (default "object")
- *   requiredKeys: ["id", "name"],  // ensure each object in array has at least one of these keys (only for arrays)
- *   // You can also add fetch options like method, headers, debug mode, etc.
+ * @module validateJSON
+ * @exports validateJSON
+ *
+ * @description Downloads and validates remote JSON files, ensuring they conform to expected structural rules. Accepts both arrays and objects, with optional constraints like required keys, entry types, and non-empty content. Designed to fail fast on invalid or redirected responses. Configurable via a flexible options object.
+ *
+ * @async
+ * @function validateJSON
+ *
+ * @typedef {Object} ValidateJSONOptions
+ * @property {number} [timeout=7000] - Timeout in ms for the fetch request
+ * @property {boolean} [requireContent=true] - Whether to reject if structure is empty
+ * @property {string} [allowedTypes="object"] - Allowed types for array entries
+ * @property {string[]} [requiredKeys=["id", "name"]] - Keys that must exist in each array entry (if applicable)
+ *
+ * @param {string} url - Absolute or relative path to the JSON file
+ * @param {ValidateJSONOptions} [options={}] - Optional validation rules
+ *
+ * @returns {Promise<Object|Object[]>} Resolves with validated JSON content (object or array)
+ *
+ * @throws {TypeError} If arguments are of invalid types
+ * @throws {Error} If the fetched data has invalid structure or content
+ * @throws {Error} If the response is redirected or has an invalid content type
+ * @throws {FetchError} If the file fails to load or times out
+ *
+ * @example
+ * // Basic usage with default validation
+ * const json = await validateJSON("data/example.json");
+ *
+ * @example
+ * // With custom validation rules
+ * const data = await validateJSON("data/example.json", {
+ *   timeout: 5000,
+ *   requireContent: true,
+ *   allowedTypes: "object,string",
+ *   requiredKeys: ["id", "title"]
  * });
  *
- * // data will be either an array of objects or an object of objects,
- * // ready to use in your app with confidence that structure is valid.
+ * @internal Used by: validateCarousel(), and other JSON-consuming modules
+ *
+ * @todo Accept nested keys with dot-notation (e.g. "meta.author")
+ * @todo Add fallback option for retrying from alternative URLs
+ * @todo Emit structured error objects with codes and hints
  */
 
 // VALIDATE AND PARSE A JSON FILE FROM URL

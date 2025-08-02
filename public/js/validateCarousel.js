@@ -1,19 +1,75 @@
 /*!
- * validateCarousel.js – Fetches and validates carousel image entries
+ * @fileoverview validateCarousel.js – FETCHES AND VALIDATES A JSON FILE CONTAINING CAROUSEL ENTRIES
  *
- * © 2025 sandokan.cat – https://sandokan.cat
- * Released under the MIT License – https://opensource.org/licenses/MIT
- *
+ * @author © 2025 sandokan.cat – https://sandokan.cat
+ * @license MIT – https://opensource.org/licenses/MIT
  * @version 1.3.0
- * @author sandokan.cat
+ * @since 1.0.0
+ * @date 2025-01-26
+ * @see https://open-utils-dev-sandokan-cat.vercel.app/js/README.md
  *
- * DESCRIPTION:
- * This module fetches and validates a JSON file containing image entries
- * structured for a responsive carousel, ensuring structure, format and
- * accessibility are correct.
+ * @module validateCarousel
+ * @exports validateCarousel
+ * @requires validateJSON
  *
- * USAGE EXAMPLES:
- * const validImgs = await validateCarousel("js/data/carousel.json");
+ * @description Validates a remote or local JSON file containing image data for a responsive, accessible carousel. Ensures each entry includes properly formatted `srcSet` attributes, fallback images, and multilingual `alt` texts. Applies optional structural rules via `validateJSON`, including timeouts, required keys, and content type enforcement.
+ *
+ * @async
+ * @function validateCarousel
+ *
+ * @typedef {Object} CarouselEntry
+ * @property {Object} webp - Contains only a `srcSet` string with paths and density descriptors
+ * @property {string} webp.srcSet - Comma-separated image paths with 1x, 2x, 3x density
+ * @property {Object} png - Contains a `srcSet` string and a `fallback` image path
+ * @property {string} png.srcSet - Comma-separated image paths with 1x, 2x, 3x density
+ * @property {string} png.fallback - Default fallback image path for browsers that don’t support srcSet
+ * @property {Object.<string, string>} alt - Dictionary of alt texts indexed by locale (e.g. en, es-ES)
+ *
+ * @typedef {Object} ValidateCarouselOptions
+ * @property {number} [timeout=7000] - Timeout in ms for the fetch request
+ * @property {boolean} [requireContent=true] - Whether to reject if content is empty
+ * @property {string} [allowedTypes="object"] - Allowed types inside the array
+ * @property {string[]} [requiredKeys=["id", "name"]] - Keys that must exist in each object
+ *
+ * @param {string} url - Absolute or relative path to the carousel JSON file
+ * @param {ValidateCarouselOptions} [options] - Optional configuration for validation rules
+ *
+ * @returns {Promise<CarouselEntry[]>} Resolves with validated entries, or rejects with error
+ *
+ * @throws {TypeError} If arguments have incorrect types or expected structure
+ * @throws {Error} If JSON structure is invalid
+ * @throws {Error} If duplicate image paths are found across entries
+ * @throws {Error} If required keys or multipliers are missing in entries
+ * @throws {FetchError} (from validateJSON) If the JSON file cannot be loaded
+ *
+ * @example
+ * // Basic validation
+ * const images = await validateCarousel('js/data/carousel.json');
+ *
+ * @example
+ * // With custom timeout
+ * const images = await validateCarousel('js/data/carousel.json', { timeout: 3000 });
+ *
+ * @example
+ * // Structure of a valid entry (simplified)
+ * {
+ *   webp: { srcSet: "img1@1x.webp 1x, img1@2x.webp 2x, img1@3x.webp 3x" },
+ *   png: {
+ *     srcSet: "img1@1x.png 1x, img1@2x.png 2x, img1@3x.png 3x",
+ *     fallback: "img1@3x.png"
+ *   },
+ *   alt: {
+ *     "en-GB": "A calm sunrise in the forest",
+ *     "es-ES": "Un amanecer tranquilo en el bosque",
+ *     "ca-ES": "Un clarejar tranquil al bosc"
+ *   }
+ * }
+ *
+ * @internal Uses helper functions: isValidPath(), hasMultipliers(), fallbackInSrcSet()
+ *
+ * @todo Consider support for more formats
+ * @todo Parametrize required densities (e.g. accept 2x only)
+ * @todo Modularize fallback path inclusion rules
  */
 
 // IMPORT DEPENDENCIES
