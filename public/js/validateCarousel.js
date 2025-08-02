@@ -4,7 +4,7 @@
  * © 2025 sandokan.cat – https://sandokan.cat
  * Released under the MIT License – https://opensource.org/licenses/MIT
  *
- * @version 1.2.8
+ * @version 1.3.0
  * @author sandokan.cat
  *
  * DESCRIPTION:
@@ -73,10 +73,15 @@ export async function validateCarousel(url, options = {}) {
 				throw new Error(`${url} [index ${i}] → png MUST HAVE EXACT KEYS: srcSet, fallback`);
 			}
 
-			// ALT TEXT MUST BE STRING > 5 CHARS
-			if (typeof alt !== 'string' || alt.trim().length <= 5) {
-				throw new Error(`${url} [index ${i}] → alt MUST BE STRING > 5 CHARS`);
-			}
+            // ALT TEXT MUST BE A NON-EMPTY OBJECT WITH VALID STRINGS
+            if (typeof alt !== 'object' || Object.keys(alt).length < 1) {
+                throw new Error(`${url} [index ${i}] → alt MUST BE A NON-EMPTY OBJECT`);
+            }
+            for (const [locale, text] of Object.entries(alt)) {
+                if (typeof text !== 'string' || text.trim().length <= 5) {
+                    throw new Error(`${url} [index ${i}] → alt.${locale} MUST BE STRING > 5 CHARS`);
+                }
+            }
 
 			// VALIDATE PATHS AND MULTIPLIERS FOR webp
 			if (!isValidPath(webp.srcSet)) {
