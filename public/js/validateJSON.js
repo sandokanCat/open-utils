@@ -3,27 +3,30 @@
  *
  * @author © 2025 sandokan.cat – https://sandokan.cat
  * @license MIT – https://opensource.org/licenses/MIT
- * @version 1.4.3
+ * @version 1.0.0
  * @since 1.0.0
- * @date 2025-01-26
+ * @date 2025-07-28
  * @see https://open-utils-dev-sandokan-cat.vercel.app/js/README.md
  *
+ * @description
+ * Downloads and validates remote JSON files, ensuring they conform to expected structural rules.
+ * Accepts both arrays and objects, with optional constraints like required keys, entry types, and non-empty content.
+ * Designed to fail fast on invalid or redirected responses. Configurable via a flexible options object.
+ * 
  * @module validateJSON
  * @exports validateJSON
- *
- * @description Downloads and validates remote JSON files, ensuring they conform to expected structural rules. Accepts both arrays and objects, with optional constraints like required keys, entry types, and non-empty content. Designed to fail fast on invalid or redirected responses. Configurable via a flexible options object.
  *
  * @async
  * @function validateJSON
  *
  * @typedef {Object} ValidateJSONOptions
- * @property {number} [timeout=7000] - Timeout in ms for the fetch request
- * @property {boolean} [requireContent=true] - Whether to reject if structure is empty
- * @property {string} [allowedTypes="object"] - Allowed types for array entries
- * @property {string[]} [requiredKeys=["id", "name"]] - Keys that must exist in each array entry (if applicable)
+ * @property {number} [timeout=7000]                     - Timeout in ms for the fetch request
+ * @property {boolean} [requireContent=true]             - Whether to reject if structure is empty
+ * @property {string} [allowedTypes="object"]            - Allowed types for array entries
+ * @property {string[]} [requiredKeys=["id", "name"]]    - Keys that must exist in each array entry (if applicable)
  *
- * @param {string} url - Absolute or relative path to the JSON file
- * @param {ValidateJSONOptions} [options={}] - Optional validation rules
+ * @param {string} url                                   - Absolute or relative path to the JSON file
+ * @param {ValidateJSONOptions} [options={}]             - Optional validation rules
  *
  * @returns {Promise<Object|Object[]>} Resolves with validated JSON content (object or array)
  *

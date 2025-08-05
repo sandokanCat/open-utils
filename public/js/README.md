@@ -1,6 +1,6 @@
 # 🔍 JS Documentation
 
-*This document describes two JavaScript files to validate remote JSON files. These sources are designed to help you ensure the structure, content, and format of JSON data before consuming it in your frontend or services.*
+*This document describes three JavaScript utilities: two for validating remote JSON files and one for structured browser logging during development. These sources are designed to help you ensure data integrity, format consistency, and readable debugging before consuming content in your frontend or services.*
 
 ---
 
@@ -40,11 +40,11 @@ Validates any remote JSON file. Checks if the JSON is an array or object, option
 
 1. IMPORT DIRECTLY FROM REPOSITORY — no need to download:
 ```js
-import { validateJSON } from "https://open-utils-sandokancats-projects.vercel.app/js/validateJSON.js";
+import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
 ```
 or
 ```html
-<script  type="module" src="https://open-utils-sandokancats-projects.vercel.app/js/validateJSON.js"></script>
+<script  type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"></script>
 ```
 
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
@@ -100,11 +100,11 @@ Validates a JSON file structured for responsive image carousels. Checks that eac
 
 1. IMPORT DIRECTLY FROM REPOSITORY — no need to download:
 ```js
-import { validateCarousel } from "https://open-utils-sandokancats-projects.vercel.app/js/validateCarousel.js";
+import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js";
 ```
 or
 ```html
-<script type="module" src="https://open-utils-sandokancats-projects.vercel.app/js/validateCarousel.js"></script>
+<script type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"></script>
 ```
 
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
@@ -130,7 +130,83 @@ or
 ## ⚠️ Notes
 
 - Both sources are designed for easy integration from any frontend.
-- Use debug=false in production to avoid excessive server logging.
+- Use `debug=false` in production to avoid excessive server logging.
 - Always validate your JSON with these sources before using it to prevent runtime errors and improve data integrity.
 
-*Feel free to extend this documentation with curl examples or integration guides if needed.*
+> *Feel free to extend this documentation with curl examples or integration guides if needed.*
+
+---
+
+## 3. logger.js
+
+**📝 Description:**
+Simple but powerful development logger with log level filtering, environment checks, emoji tagging, and optional grouping. Designed for consistent and readable debugging in browser environments.
+
+---
+
+### 🎛️ Features
+
+- Auto-disables in production (!isDev) or if log:silent cookie is set
+- Emoji for each log type: ❌ error, ⚠️ warn, ℹ️ info, 🛠️ debug, 📋 log, 🔎 trace, 🚨 assert, etc.
+- Supports grouped logs (normal or collapsed)
+- Validates log levels and groups unknown ones for visibility
+- Minimal syntax: just import and use
+
+---
+
+### 🚀 Exported Functions
+
+| Function                  | Description                                 |
+|---------------------------|---------------------------------------------|
+| `logger.enable()`         | Enables logging explicitly via cookie       |
+| `logger.disable()`        | Silences all logs regardless of environment |
+| `logger.clear()`          | Clears the console if enabled               |
+| `logger.error()`          | ❌ Logs errors                              |
+| `logger.warn()`           | ⚠️ Logs warnings                            |
+| `logger.info()`           | ℹ️ Informational logs                       |
+| `logger.debug()`          | 🛠️ Debug logs                               |
+| `logger.normal()`         | 📋 Standard logs (`console.log`)            |
+| `logger.trace()`          | 🔎 Stack traces                             |
+| `logger.assert()`         | 🚨 Conditional assertions                   |
+| `logger.dir()`            | 📂 Object structures                        |
+| `logger.table()`          | 📊 Tabular data                             |
+| `logger.count()`          | 🔢 Increments a named counter               |
+| `logger.countReset()`     | 🔄 Resets a named counter                   |
+| `logger.time()`           | ⏱️ Starts a timer                           |
+| `logger.timeEnd()`        | 💥 Ends and logs timer duration             |
+| `logger.timeLog()`        | ⌛ Logs intermediate timer value            |
+| `logger.group()`          | 📦 Expanded log group (expanded)            |
+| `logger.groupCollapse()`  | 👉 Collapsed log group                      |
+
+---
+
+### 🛠️ Usage Example
+
+1. IMPORT DIRECTLY FROM REPOSITORY — no need to download:
+```js
+import logger from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+```
+
+2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
+```js
+import logger from "./js/logger.js";
+```
+
+3. SAMPLE LOGS:
+```js
+logger.info('Logger started');
+logger.error('An error occurred', { code: 500 });
+logger.group('User Actions', () => {
+    logger.debug('Clicked button A');
+    logger.debug('Opened modal');
+});
+```
+
+---
+
+### ⚠️ Notes
+
+- These source are designed for easy integration from any frontend.
+- Use `isSilent` cookie in production to avoid excessive logging.
+
+> *Feel free to extend this documentation with curl examples or integration guides if needed.*

@@ -5,8 +5,8 @@
 **Academic hash bruteforce tool using password+salt combinations**
 
 Designed for cybersecurity students and Red Team labs.
-
 Supports 14+ algorithms, multi-hash mode, custom wordlists, JSON output, and stdin piping.
+Parallelized via multiprocessing with progress bar.
 
 ---
 

@@ -2,17 +2,51 @@
 # -*- coding: utf-8 -*-
 
 """
-bruteforce.py - Academic hash bruteforce tool using password+salt wordlists
+@fileoverview bruteforce.py - ACADEMIC HASH BRUTEFORCE TOOL USING PASSWORD+SALT WORDLISTS
 
-© 2025 sandokan.cat - https://sandokancat.github.io/CV/
-Released under the MIT License - https://opensource.org/licenses/MIT
+@author © 2025 sandokan.cat – https://sandokan.cat
+@license MIT – https://opensource.org/licenses/MIT
+@version 1.0.0
+@since 1.0.0
+@date 2025-07-30
+@see https://github.com/sandokanCat/open-utils/blob/main/cybersec/README.md
 
-@version 1.4.2
-@author sandokan.cat
+@description
+Academic hash bruteforce tool using password+salt combinations.
+Designed for cybersecurity students and Red Team labs.
+Supports 14+ algorithms, multi-hash mode, custom wordlists, JSON output, and stdin piping.
+Parallelized via multiprocessing with progress bar.
 
-USAGE EXAMPLES:
+@param {str} target_hash           – Single target hash to crack (optional)
+@param {str} hash_file             – File containing multiple hashes (optional)
+@param {bool} stdin_mode           – Read hashes from standard input (optional)
+@param {int} hash_length           – Length of the hash for algorithm inference (optional)
+@param {str} algo                  – Force a specific hashing algorithm (optional)
+@param {str} custom_wordlist       – Path to an additional custom wordlist (optional)
+@param {str} mode                  – Combination mode: "ps", "sp", or "both"
+@param {int} threads               – Number of parallel processes (default: CPU cores)
+@param {str} save_file             – File path to save cracked results (optional)
+@param {str} json                  – File path to export results in JSON format (optional)
+@param {str} log                   – File path for logging warnings (default: "bruteforce.log")
+@param {bool} quiet                – Suppress verbose output (default: False)
+
+@returns {int} Exit code: 0 on success, non-zero on failure
+
+@example
 $ python bruteforce.py --target-hash 5f4dcc3b5aa765d61d8327deb882cf99
 $ python bruteforce.py --hash-file hashes.txt --hash-length 32 --custom-wordlist mylist.txt --threads 4
+
+@internal
+This tool is intended strictly for academic and authorized testing purposes.
+Not suitable for production or large scale brute forcing.
+Ensure legal and ethical use at all times.
+
+@todo GPU support (via PyOpenCL or hashcat bridge)
+@todo Wordlist resume (for large datasets)
+@todo Salt file mode (e.g., separate salt files)
+@todo Modular API version
+@todo Add comprehensive unit tests for all supported algorithms
+@todo Enhance logging and progress reporting
 """
 
 import argparse

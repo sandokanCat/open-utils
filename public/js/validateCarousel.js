@@ -3,33 +3,36 @@
  *
  * @author © 2025 sandokan.cat – https://sandokan.cat
  * @license MIT – https://opensource.org/licenses/MIT
- * @version 1.3.1
+ * @version 1.0.0
  * @since 1.0.0
- * @date 2025-01-26
+ * @date 2025-07-30
  * @see https://open-utils-dev-sandokan-cat.vercel.app/js/README.md
+ *
+ * @description
+ * Validates a remote or local JSON file containing image data for a responsive, accessible carousel.
+ * Ensures each entry includes properly formatted `srcSet` attributes, fallback images, and multilingual `alt` texts.
+ * Applies optional structural rules via `validateJSON`, including timeouts, required keys, and content type enforcement.
  *
  * @module validateCarousel
  * @exports validateCarousel
  * @requires validateJSON
- *
- * @description Validates a remote or local JSON file containing image data for a responsive, accessible carousel. Ensures each entry includes properly formatted `srcSet` attributes, fallback images, and multilingual `alt` texts. Applies optional structural rules via `validateJSON`, including timeouts, required keys, and content type enforcement.
- *
+ * 
  * @async
  * @function validateCarousel
  *
  * @typedef {Object} CarouselEntry
- * @property {Object} webp - Contains only a `srcSet` string with paths and density descriptors
- * @property {string} webp.srcSet - Comma-separated image paths with 1x, 2x, 3x density
- * @property {Object} png - Contains a `srcSet` string and a `fallback` image path
- * @property {string} png.srcSet - Comma-separated image paths with 1x, 2x, 3x density
- * @property {string} png.fallback - Default fallback image path for browsers that don’t support srcSet
- * @property {Object.<string, string>} alt - Dictionary of alt texts indexed by locale (e.g. en, es-ES)
+ * @property {Object} webp                               - Contains only a `srcSet` string with paths and density descriptors
+ * @property {string} webp.srcSet                        - Comma-separated image paths with 1x, 2x, 3x density
+ * @property {Object} png                                - Contains a `srcSet` string and a `fallback` image path
+ * @property {string} png.srcSet                         - Comma-separated image paths with 1x, 2x, 3x density
+ * @property {string} png.fallback                       - Default fallback image path for browsers that don’t support srcSet
+ * @property {Object.<string, string>} alt               - Dictionary of alt texts indexed by locale (e.g. en, es-ES)
  *
  * @typedef {Object} ValidateCarouselOptions
- * @property {number} [timeout=7000] - Timeout in ms for the fetch request
- * @property {boolean} [requireContent=true] - Whether to reject if content is empty
- * @property {string} [allowedTypes="object"] - Allowed types inside the array
- * @property {string[]} [requiredKeys=["id", "name"]] - Keys that must exist in each object
+ * @property {number} [timeout=7000]                     - Timeout in ms for the fetch request
+ * @property {boolean} [requireContent=true]             - Whether to reject if content is empty
+ * @property {string} [allowedTypes="object"]            - Allowed types inside the array
+ * @property {string[]} [requiredKeys=["id", "name"]]    - Keys that must exist in each object
  *
  * @param {string} url - Absolute or relative path to the carousel JSON file
  * @param {ValidateCarouselOptions} [options] - Optional configuration for validation rules
