@@ -24,11 +24,11 @@ Fixes cross-browser inconsistencies and provides a clean, accessible foundation 
 
 1. IMPORT DIRECTLY FROM REPOSITORY — no need to download:
 ```css
-@import url("https://open-utils-sandokancats-projects.vercel.app/css/custom-reset.css");
+@import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
 ```
 or
 ```html
-<link rel="stylesheet" href="https://open-utils-sandokancats-projects.vercel.app/css/custom-reset.css">
+<link rel="stylesheet" href="https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css">
 ```
 
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
@@ -69,3 +69,4 @@ Licensed under [MIT](https://opensource.org/licenses/MIT)
 - Ideal for minimalistic UIs, landing pages, single-page apps, portfolios, and design systems.
 
 > "Reset before you paint."
+
