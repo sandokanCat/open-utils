@@ -50,7 +50,7 @@ import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/
 or
 
 ```html
-<script  type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"></script>
+<script type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"></script>
 ```
 
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
@@ -243,4 +243,5 @@ logger.group('User Actions', () => {
 - Use `isSilent` cookie in production to avoid excessive logging.
 
 > *Feel free to extend this documentation with curl examples or integration guides if needed.*
+
 
