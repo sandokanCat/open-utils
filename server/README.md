@@ -4,7 +4,7 @@ Reusable backend tools for handling Content Security Policy (CSP) violation repo
 
 ---
 
-## 📄 `csp-collector.php`
+## 📄 `csp-report.php`
 
 A minimal PHP endpoint to receive and log CSP (Content Security Policy) violation reports.
 
@@ -66,10 +66,15 @@ AddType application/json .jsonl
 AddType text/plain .log
 
 # BASIC SECURITY HEADERS
-Header set X-Content-Type-Options "nosniff"
-Header set X-Frame-Options "DENY"
-Header set Referrer-Policy "no-referrer"
-Header set Permissions-Policy "clipboard-read=(), clipboard-write=()"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "fullscreen=(self), clipboard-write=(self)"
+Header always set X-Permitted-Cross-Domain-Policies "none"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Cross-Origin-Resource-Policy "same-origin"
+Header always set Cross-Origin-Embedder-Policy "require-corp"
+Header always set Cross-Origin-Opener-Policy "same-origin"
 
 # NOTE: 'report-uri' is deprecated in favor of 'report-to', but still widely supported
 # Set this header from your server or app configuration:
@@ -82,7 +87,7 @@ Header set Permissions-Policy "clipboard-read=(), clipboard-write=()"
 2. Point your CSP policy to this endpoint:
 
 ```apache
-Content-Security-Policy: default-src 'self'; report-uri /server/csp-collector.php
+Content-Security-Policy: default-src 'self'; report-uri /server/csp-report.php
 ```
 
 3. Make sure the `/logs` folder exists or let the script create it automatically
@@ -111,5 +116,6 @@ Collecting CSP violation reports helps you:
 ├── .htaccess              # OPTIONAL SECURITY CONFIGURATION
 └── /logs                  # GENERATED LOG FILES (autocreated if missing)
 ```
+
 
 > Let me know if you want a short example CSP report in JSON or want to include a quick bash script to tail or analyze the logs.
