@@ -122,6 +122,11 @@ button, input, select, textarea, progress, meter {
 	font: inherit;
 	color: inherit;
 }
+textarea {
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 button {
 	cursor: pointer;
 	background: transparent;
@@ -140,3 +145,4 @@ button {
 		scroll-behavior: smooth;
 	}
 }
+
