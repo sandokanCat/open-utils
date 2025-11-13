@@ -206,10 +206,22 @@ Simple but powerful development logger with log level filtering, environment che
 import logger from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
 ```
 
+or
+
+```html
+<script  type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js"></script>
+```
+
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
 
 ```js
 import logger from "./js/logger.js";
+```
+
+or
+
+```html
+<script type="module" src="js/logger.js"></script>
 ```
 
 3. SAMPLE LOGS:
@@ -231,3 +243,4 @@ logger.group('User Actions', () => {
 - Use `isSilent` cookie in production to avoid excessive logging.
 
 > *Feel free to extend this documentation with curl examples or integration guides if needed.*
+
