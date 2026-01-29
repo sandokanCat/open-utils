@@ -23,22 +23,28 @@ Fixes cross-browser inconsistencies and provides a clean, accessible foundation 
 ## 🛠️ Usage Example
 
 1. IMPORT DIRECTLY FROM REPOSITORY — no need to download:
-```css
-@import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
-```
-or
-```html
-<link rel="stylesheet" href="https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css">
-```
+
+    ```css
+    @import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
+    ```
+
+    or
+
+    ```html
+    <link rel="stylesheet" href="https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css">
+    ```
 
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
-```css
-@import url("./css/custom-reset.css");
-```
-or
-```html
-<link rel="stylesheet" href="css/custom-reset.css">
-```
+
+    ```css
+    @import url("./css/custom-reset.css");
+    ```
+
+    or
+
+    ```html
+    <link rel="stylesheet" href="css/custom-reset.css">
+    ```
 
 > ☝️ This file should be loaded **before** any global styles or component-specific CSS.
 
@@ -50,7 +56,11 @@ or
 
 **Custom modifications: © 2025 [sandokan.cat](https://sandokan.cat)**
 
-Licensed under [MIT](https://opensource.org/licenses/MIT)
+<div align="center">
+    <a href="https://opensource.org/licenses/MIT">
+        <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License">
+    </a>
+</div>
 
 ---
 
@@ -69,4 +79,3 @@ Licensed under [MIT](https://opensource.org/licenses/MIT)
 - Ideal for minimalistic UIs, landing pages, single-page apps, portfolios, and design systems.
 
 > "Reset before you paint."
-

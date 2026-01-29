@@ -12,7 +12,7 @@ Validates any remote JSON file. Checks if the JSON is an array or object, option
 ### 🔑 Query Parameters
 
 | Parameter      | Type   | Required | Description                                                    |
-|----------------|--------|----------|----------------------------------------------------------------|
+|:---------------|:-------|:---------|---------------------------------------------------------------|
 | `url`          | string | Yes      | The remote JSON URL to validate                                |
 | `timeout`      | number | No       | Timeout in milliseconds before aborting the request (default: 7000) |
 | `requiredKeys` | string | No       | Comma-separated list of keys that each object must contain (only if JSON is array) |
@@ -43,27 +43,27 @@ Validates any remote JSON file. Checks if the JSON is an array or object, option
 
 1. IMPORT DIRECTLY FROM REPOSITORY — no need to download:
 
-```js
-import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-```
+    ```js
+    import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
+    ```
 
-or
+    or
 
-```html
-<script type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"></script>
-```
+    ```html
+    <script type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"></script>
+    ```
 
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
 
-```js
-import { validateJSON } from "./js/validateJSON.js";
-```
+    ```js
+    import { validateJSON } from "./js/validateJSON.js";
+    ```
 
-or
+    or
 
-```html
-<script type="module" src="js/validateJSON.js"></script>
-```
+    ```html
+    <script type="module" src="js/validateJSON.js"></script>
+    ```
 
 ---
 
@@ -83,21 +83,21 @@ Validates a JSON file structured for responsive image carousels. Checks that eac
 
 - Success:
 
-```json
-{
-  "valid": true,
-  "data": [ /* Array of validated image objects */ ]
-}
-```
+    ```json
+    {
+    "valid": true,
+    "data": [ /* Array of validated image objects */ ]
+    }
+    ```
 
 - Failure:
 
-```json
-{
-  "valid": false,
-  "error": "Descriptive error message"
-}
-```
+    ```json
+    {
+    "valid": false,
+    "error": "Descriptive error message"
+    }
+    ```
 
 ### 🧩 Key Validations
 
@@ -112,27 +112,27 @@ Validates a JSON file structured for responsive image carousels. Checks that eac
 
 1. IMPORT DIRECTLY FROM REPOSITORY — no need to download:
 
-```js
-import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js";
-```
+    ```js
+    import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js";
+    ```
 
-or
+    or
 
-```html
-<script type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"></script>
-```
+    ```html
+    <script type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"></script>
+    ```
 
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
 
-```js
-import { validateCarousel } from "./js/validateCarousel.js";
-```
+    ```js
+    import { validateCarousel } from "./js/validateCarousel.js";
+    ```
 
-or
+    or
 
-```html
-<script type="module" src="js/validateCarousel.js"></script>
-```
+    ```html
+    <script type="module" src="js/validateCarousel.js"></script>
+    ```
 
 ### ❗ Common Errors
 
@@ -202,38 +202,38 @@ Simple but powerful development logger with log level filtering, environment che
 
 1. IMPORT DIRECTLY FROM REPOSITORY — no need to download:
 
-```js
-import logger from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-```
+    ```js
+    import logger from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+    ```
 
-or
+    or
 
-```html
-<script  type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js"></script>
-```
+    ```html
+    <script  type="module" src="https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js"></script>
+    ```
 
 2. OR DOWNLOAD AND IMPORT FROM YOUR OWN PROJECT FOLDER:
 
-```js
-import logger from "./js/logger.js";
-```
+    ```js
+    import logger from "./js/logger.js";
+    ```
 
-or
+    or
 
-```html
-<script type="module" src="js/logger.js"></script>
-```
+    ```html
+    <script type="module" src="js/logger.js"></script>
+    ```
 
 3. SAMPLE LOGS:
 
-```js
-logger.info('Logger started');
-logger.error('An error occurred', { code: 500 });
-logger.group('User Actions', () => {
-    logger.debug('Clicked button A');
-    logger.debug('Opened modal');
-});
-```
+    ```js
+    logger.info('Logger started');
+    logger.error('An error occurred', { code: 500 });
+    logger.group('User Actions', () => {
+        logger.debug('Clicked button A');
+        logger.debug('Opened modal');
+    });
+    ```
 
 ---
 
@@ -243,5 +243,3 @@ logger.group('User Actions', () => {
 - Use `isSilent` cookie in production to avoid excessive logging.
 
 > *Feel free to extend this documentation with curl examples or integration guides if needed.*
-
-

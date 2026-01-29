@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Cabezas Núñez"
+  given-names: "Gonzalo"
+title: "open-utils"
+version: 1.0.0
+date-released: 2026-01-24
+url: "https://github.com/sandokanCat/open-utils"
+license: MIT
+keywords:
+  - css3
+  - js
+  - ajax
+  - library
+  - utils
+  - fullstack
+  - mit-license
+  - tsx

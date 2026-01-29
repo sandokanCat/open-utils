@@ -1,0 +1,10 @@
+# BLOCKED
+_*
+._
+
+# TEMPORARY
+app/
+server/
+
+# ALLOWED
+!.gitignore
