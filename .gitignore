@@ -7,4 +7,5 @@ app/
 server/
 
 # ALLOWED
+!.github/
 !.gitignore
