@@ -4,7 +4,7 @@ Thank you for your interest in contributing to `open-utils`! 🎉
 
 ## Philosophy & Code of Conduct
 
-This project is governed by a **Code of Conduct based on Meritocracy and Technical Excellence**. Please read it before contributing. We value your code, not your identity.
+This project is governed by a [Code of Conduct](./CODE_OF_CONDUCT.md) based on **Meritocracy and Technical Excellence**. Please read it before contributing. We value your code, not your identity.
 
 ## Steps to contribute
 

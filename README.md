@@ -2,10 +2,6 @@
 
 A growing collection of frontend utilities, JSON validators, CSS resets, and developer tools for everyday tasks.
 
-*Created and maintained by [sandokan.cat](https://sandokan.cat)*
-
-> All code in this repository is [MIT licensed](https://opensource.org/licenses/MIT), intended for developers, personal projects, and real-world learning across multiple languages.
-
 ---
 
 ## 🚀 What you'll find here
@@ -43,7 +39,7 @@ cd open-utils
 
 ## 🤝 Contributing
 
-Contributions are welcome!
+[Contributions are welcome!](./CONTRIBUTING.md)
 Keep code **modular, readable, and tested**.
 Pull requests should include a clear description and working example.
 
@@ -56,7 +52,7 @@ MIT © 2025 [sandokan.cat](https://sandokan.cat)
 *Use it. Modify it. Share it. Attribution is appreciated.*
 
 <div align="center">
-    <a href="https://opensource.org/licenses/MIT">
+    <a href="./LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License">
     </a>
 </div>
