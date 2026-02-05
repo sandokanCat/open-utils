@@ -18,4 +18,3 @@ This project is governed by a **Code of Conduct based on Meritocracy and Technic
 ## Style Guidelines
 
 * **Language**: Comments and primary documentation in technical English.
-* **Consistency**: Follow PEP 8 for Python code.
