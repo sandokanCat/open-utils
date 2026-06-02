@@ -197,84 +197,97 @@ export async function validateCarousel(url, options = {}) {
 					const stackDir = stack.stackDir || '';
 					const stackExt = stack.ext || null;
 
+					// Nested helper to dry-run path reconstruction and verification
+					const processFiles = (filesObj, typeDir = '', typeExt = null) => {
+						if (!filesObj) return;
+
+						const filesGroup = [];
+						if (filesObj.name) {
+							filesGroup.push(filesObj);
+						} else {
+							for (const fileObj of Object.values(filesObj)) {
+								if (typeof fileObj === 'object' && fileObj !== null) {
+									filesGroup.push(fileObj);
+								}
+							}
+						}
+
+						for (const fileObj of filesGroup) {
+							const fileName = fileObj.name;
+							const alt = fileObj.alt || {};
+							if (fileName) {
+								const dirPath = mainDir + stackDir + typeDir;
+								
+								let fallbackExt = fileObj.ext || typeExt || stackExt || '.png';
+								if (!fallbackExt.startsWith('.')) {
+									fallbackExt = '.' + fallbackExt;
+								}
+
+								if (!validExtensions.includes(fallbackExt)) {
+									throw new Error(`Extension ${fallbackExt} is not valid. Must be one of ${validExtensions.join(', ')}`);
+								}
+
+								const webpSrcSet = Object.entries(scales).map(([scaleKey, scaleVal]) => {
+									return `${dirPath}${fileName}${scaleVal}.webp ${scaleKey}`;
+								}).join(', ');
+
+								const pngSrcSet = Object.entries(scales).map(([scaleKey, scaleVal]) => {
+									return `${dirPath}${fileName}${scaleVal}${fallbackExt} ${scaleKey}`;
+								}).join(', ');
+
+								const fallback = `${dirPath}${fileName}${highestScaleVal}${fallbackExt}`;
+
+								// Validate Alt
+								if (typeof alt !== 'object' || alt === null || Array.isArray(alt)) {
+									throw new Error(`${url} [file ${fileName}] → alt MUST BE A NON-EMPTY OBJECT`);
+								}
+								const validAlts = Object.values(alt).filter(text => typeof text === 'string' && text.trim().length > 5);
+								if (validAlts.length === 0) {
+									throw new Error(`${url} [file ${fileName}] → alt MUST CONTAIN AT LEAST ONE STRING > 5 CHARS`);
+								}
+
+								// Validate generated paths
+								if (!isValidPath(webpSrcSet)) {
+									throw new Error(`${url} [file ${fileName}] → generated webp srcSet paths INVALID`);
+								}
+								if (!hasMultipliers(webpSrcSet, scaleKeys)) {
+									throw new Error(`${url} [file ${fileName}] → generated webp srcSet MISSING multipliers: ${scaleKeys.join(', ')}`);
+								}
+								if (!isValidPath(pngSrcSet, fallback)) {
+									throw new Error(`${url} [file ${fileName}] → generated png/jpg srcSet or fallback paths INVALID`);
+								}
+								if (!fallbackInSrcSet(pngSrcSet, fallback)) {
+									throw new Error(`${url} [file ${fileName}] → generated fallback NOT INCLUDED in srcSet`);
+								}
+								if (!hasMultipliers(pngSrcSet, scaleKeys)) {
+									throw new Error(`${url} [file ${fileName}] → generated png/jpg srcSet MISSING multipliers: ${scaleKeys.join(', ')}`);
+								}
+
+								imgs.push({
+									webp: { srcSet: webpSrcSet },
+									png: {
+										srcSet: pngSrcSet,
+										fallback: fallback
+									},
+									alt: alt
+								});
+							}
+						}
+					};
+
+					// 1. Process files directly under the stack (if present)
+					if (stack.files) {
+						processFiles(stack.files, '', stackExt);
+					}
+
+					// 2. Process types and their files under the stack (if present)
 					if (stack.types) {
 						for (const [typeKey, type] of Object.entries(stack.types)) {
 							const typeDir = type.typeDir || type.dir || '';
 							const typeExt = type.ext || stackExt;
 
 							if (type.files) {
-								const filesGroup = [];
-								if (type.files.name) {
-									filesGroup.push(type.files);
-								} else {
-									for (const fileObj of Object.values(type.files)) {
-										if (typeof fileObj === 'object' && fileObj !== null) {
-											filesGroup.push(fileObj);
-										}
-									}
-								}
-
-								for (const fileObj of filesGroup) {
-									const fileName = fileObj.name;
-									const alt = fileObj.alt || {};
-									if (fileName) {
-										const dirPath = mainDir + stackDir + typeDir;
-										
-										let fallbackExt = fileObj.ext || typeExt || '.png';
-										if (!fallbackExt.startsWith('.')) {
-											fallbackExt = '.' + fallbackExt;
-										}
-
-										if (!validExtensions.includes(fallbackExt)) {
-											throw new Error(`Extension ${fallbackExt} is not valid. Must be one of ${validExtensions.join(', ')}`);
-										}
-
-										const webpSrcSet = Object.entries(scales).map(([scaleKey, scaleVal]) => {
-											return `${dirPath}${fileName}${scaleVal}.webp ${scaleKey}`;
-										}).join(', ');
-
-										const pngSrcSet = Object.entries(scales).map(([scaleKey, scaleVal]) => {
-											return `${dirPath}${fileName}${scaleVal}${fallbackExt} ${scaleKey}`;
-										}).join(', ');
-
-										const fallback = `${dirPath}${fileName}${highestScaleVal}${fallbackExt}`;
-
-										// Validate Alt
-										if (typeof alt !== 'object' || alt === null || Array.isArray(alt)) {
-											throw new Error(`${url} [file ${fileName}] → alt MUST BE A NON-EMPTY OBJECT`);
-										}
-										const validAlts = Object.values(alt).filter(text => typeof text === 'string' && text.trim().length > 5);
-										if (validAlts.length === 0) {
-											throw new Error(`${url} [file ${fileName}] → alt MUST CONTAIN AT LEAST ONE STRING > 5 CHARS`);
-										}
-
-										// Validate generated paths
-										if (!isValidPath(webpSrcSet)) {
-											throw new Error(`${url} [file ${fileName}] → generated webp srcSet paths INVALID`);
-										}
-										if (!hasMultipliers(webpSrcSet, scaleKeys)) {
-											throw new Error(`${url} [file ${fileName}] → generated webp srcSet MISSING multipliers: ${scaleKeys.join(', ')}`);
-										}
-										if (!isValidPath(pngSrcSet, fallback)) {
-											throw new Error(`${url} [file ${fileName}] → generated png/jpg srcSet or fallback paths INVALID`);
-										}
-										if (!fallbackInSrcSet(pngSrcSet, fallback)) {
-											throw new Error(`${url} [file ${fileName}] → generated fallback NOT INCLUDED in srcSet`);
-										}
-										if (!hasMultipliers(pngSrcSet, scaleKeys)) {
-											throw new Error(`${url} [file ${fileName}] → generated png/jpg srcSet MISSING multipliers: ${scaleKeys.join(', ')}`);
-										}
-
-										imgs.push({
-											webp: { srcSet: webpSrcSet },
-											png: {
-												srcSet: pngSrcSet,
-												fallback: fallback
-											},
-											alt: alt
-										});
-									}
-								}
+								processFiles(type.files, typeDir, typeExt);
 							}
 						}
 					}
